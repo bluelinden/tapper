@@ -1,10 +1,11 @@
-export default class Trait {
+export default class Metadata {
   type: string;
-  value: unknown;
   id: string;
+  private _value: unknown;
+  
   constructor(type: string, value: unknown) {
     this.type = type;
-    this.value = value;
+    this._value = value;
     // id is an eight character random string
     this.id = Math.random().toString(36).substring(2, 10);
   }
@@ -12,13 +13,13 @@ export default class Trait {
     this.type = '';
     this.value = '';
   }
-  get() {
-    return this.value;
+  get value() {
+    return this._value;
   }
-  set(value: unknown) {
+  set value(value: unknown) {
     if (typeof(value) !== this.type){
       throw new Error(`Trait must be of type ${this.type}`);
     }
-    this.value = value;
+    this._value = value;
   }
 }
