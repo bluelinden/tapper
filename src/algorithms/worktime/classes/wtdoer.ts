@@ -4,7 +4,7 @@ import Task from '../../../classes/thing/task';
 interface ConfigObject {
   name: string;
   skillLevel: number;
-  dogpileBias: unknown;
+  dogpileBias: object;
   skills: Skill[];
   capabilities: Capability[];
 }
@@ -16,7 +16,6 @@ interface Skill {
   id: string;
 }
 
-
 interface Capability {
   name: string;
   description: string;
@@ -25,11 +24,11 @@ interface Capability {
 }
 
 export default class WTDoer extends Doer {
-  name: string;
   skillLevel = 0;
   skills: Skill[] = [];
   capabilities: Capability[] = [];
   tasks: Task[] = [];
+  name: string;
 
   constructor(config: ConfigObject, tasks: Task[] = []) {
     super();
@@ -41,3 +40,5 @@ export default class WTDoer extends Doer {
     this.tasks = tasks;
   }
 }
+
+export {Skill, Capability, ConfigObject};

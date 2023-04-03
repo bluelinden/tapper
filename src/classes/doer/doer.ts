@@ -1,14 +1,9 @@
-import Metadata from '../metadata';
+import Task from '../thing/task';
 export default class Doer {
-  assignTrait = function(traitType: string, traitName: string, traitValue: unknown) {
-    this.traits[traitName] = new Metadata(traitType, traitValue);
-    return this.traits[traitName];
-  };
-  deleteMetadata = function(traitName: string) {
-    delete this.traits[traitName];
-  };
-  traits: Record<string, Metadata> = {};
+  uuid: string;
+  tasks: Task[] = [];
+
   constructor() {
-    this.assignTrait('string', 'uuid', Math.random().toString(36).substring(2, 15));
+    this.uuid = Math.random().toString(36).substring(2, 15);
   }
 }

@@ -1,14 +1,2 @@
-import Doer from '../../../classes/doer/doer';
+import WTDoer from '../classes/wtdoer';
 
-export default class WTDoerParser {
-  doerArray: Doer[];
-
-  constructor(doerArray: Doer[]) {
-    this.doerArray = doerArray;
-    doerArray.forEach((element: Doer) => {
-      if (!element.traits['skillLevel']) {
-        element.assignTrait('number', 'skillLevel', 0);
-      }
-    });
-  }
-}

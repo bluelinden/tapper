@@ -1,17 +1,13 @@
-import Metadata from '../metadata';
+import Doer from '../doer/doer';
 export default class Task {
   name: string;
   description: string;
   data: unknown;
-  constructor(name: string, description: string) {
+  doers: Doer[] = [];
+  uuid: string;
+  constructor(name: string, description = '') {
     this.name = name;
     this.description = description;
+    this.uuid = Math.random().toString(36).substring(2, 15);
   }
-  addMetadata = function(metadataName: string, metadataType: string, metadataValue: unknown) {
-    this.traits[metadataName] = new Metadata(metadataType, metadataValue);
-    return this.traits[metadataName];
-  };
-  deleteMetadata = function(metadataName: string) {
-    delete this.traits[metadataName];
-  };
 }
