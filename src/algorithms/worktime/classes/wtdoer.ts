@@ -1,5 +1,5 @@
 import Doer from '../../../classes/doer/doer';
-import Task from '../../../classes/thing/task';
+import WTTask from './wttask';
 
 interface ConfigObject {
   name: string;
@@ -27,10 +27,17 @@ export default class WTDoer extends Doer {
   skillLevel = 0;
   skills: Skill[] = [];
   capabilities: Capability[] = [];
-  tasks: Task[] = [];
+  tasks: WTTask[] = [];
   name: string;
 
-  constructor(config: ConfigObject, tasks: Task[] = []) {
+  newTask(name: string, description = '') {
+    const task = new WTTask({name: name, description: description});
+    this.tasks.push(task);
+    task.doers.push(this);
+    return task;
+  }
+
+  constructor(config: ConfigObject, tasks: WTTask[] = []) {
     super();
     if(!config.name) throw new Error('WTDoer requires a name');
     this.name = config.name;

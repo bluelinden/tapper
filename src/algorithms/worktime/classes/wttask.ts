@@ -1,24 +1,30 @@
 import Task from '../../../classes/thing/task';
+import WTDoer from './wtdoer';
+import WTThing from './wtthing';
 import {Skill, Capability} from './wtdoer';
 
 export default class WTTask extends Task {
   name: string;
-  skillLevel = 0;
-  skills: Skill[] = [];
-  capabilities: Capability[] = [];
-  tasks: Task[] = [];
+  difficulty: Skill[];
+  requirements: Capability[] = [];
+  things: WTThing[] = [];
+  doers: WTDoer[] = [];
   
-  attachToThing(thing: Thing) {
-    thing.tasks.push(this);
+  attachToThings(things: WTThing[]) {
+    things.forEach((thing: WTThing) => {
+      thing.tasks.push(this);
+      this.things.push(thing);
+    });
   }
 
-  constructor(config: ConfigObject, tasks: Task[] = []) {
+  attachToDoers(doers: WTDoer[]) {
+    doers.forEach((doer: WTDoer) => {
+      doer.tasks.push(this);
+      this.doers.push(doer);
+    });
+  }
+
+  constructor(config: {name: string, description: string}) {
     super(config.name, config.description);
-    if(!config.name) throw new Error('WTDoer requires a name');
-    this.name = config.name;
-    this.skillLevel = config.skillLevel;
-    this.skills = config.skills;
-    this.capabilities = config.capabilities;
-    this.tasks = tasks;
   }
 }

@@ -1,5 +1,5 @@
 import Thing from '../../../classes/thing/thing';
-import WTTask from '../../../classes/thing/task';
+import WTTask from './wttask';
 
 export default class WTThing extends Thing {
   name: string;
@@ -7,8 +7,9 @@ export default class WTThing extends Thing {
   uuid: string;
 
   newTask(name: string, description = '') {
-    const task = new WTTask(name, description);
+    const task = new WTTask({name: name, description: description});
     this.tasks.push(task);
+    task.things.push(this);
     return task;
   }
 
