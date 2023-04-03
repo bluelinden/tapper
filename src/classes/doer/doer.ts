@@ -8,4 +8,7 @@ export default class Doer {
     delete this.traits[traitName];
   };
   traits: Record<string, Metadata> = {};
+  constructor() {
+    this.assignTrait('string', 'uuid', Math.random().toString(36).substring(2, 15));
+  }
 }
