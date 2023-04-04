@@ -37,6 +37,14 @@ export default class WTDoer extends Doer {
     return task;
   }
 
+  attachTasks(task: WTTask[] | WTTask) {
+    if(!Array.isArray(task)) task = [task];
+    task.forEach((task: WTTask) => {
+      this.tasks.push(task);
+      task.doers.push(this);
+    });
+  }
+
   constructor(config: ConfigObject, tasks: WTTask[] = []) {
     super();
     if(!config.name) throw new Error('WTDoer requires a name');

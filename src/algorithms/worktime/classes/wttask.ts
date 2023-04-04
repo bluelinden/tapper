@@ -10,14 +10,16 @@ export default class WTTask extends Task {
   things: WTThing[] = [];
   doers: WTDoer[] = [];
   
-  attachToThings(things: WTThing[]) {
+  attachToThings(things: WTThing[] | WTThing) {
+    if(!Array.isArray(things)) things = [things];
     things.forEach((thing: WTThing) => {
       thing.tasks.push(this);
       this.things.push(thing);
     });
   }
 
-  attachToDoers(doers: WTDoer[]) {
+  attachToDoers(doers: WTDoer[] | WTDoer) {
+    if(!Array.isArray(doers)) doers = [doers];
     doers.forEach((doer: WTDoer) => {
       doer.tasks.push(this);
       this.doers.push(doer);

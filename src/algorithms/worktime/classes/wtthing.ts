@@ -13,6 +13,14 @@ export default class WTThing extends Thing {
     return task;
   }
 
+  attachTasks(task: WTTask[] | WTTask) {
+    if(!Array.isArray(task)) task = [task];
+    task.forEach((task: WTTask) => {
+      this.tasks.push(task);
+      task.things.push(this);
+    });
+  }
+
   constructor(name: string, description = '', tasks: WTTask[] = []) {
     super(name, description, tasks);
     this.name = name;
