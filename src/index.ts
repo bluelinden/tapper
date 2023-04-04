@@ -1,5 +1,9 @@
-import {WTDoer, WTTask, WTThing, Skill, Capability} from './algorithms/worktime/index';
+import {WTDoer, WTTask, WTThing} from './algorithms/worktime/index';
+import * as Algorithms from './algorithms/index';
 
+class TapperJS {
+  algorithm: Algorithms;
+}
 const thing = new WTThing('thing');
 const task = new WTTask({name: 'task', description: 'description'});
 const doer = new WTDoer({
@@ -9,3 +13,5 @@ const doer = new WTDoer({
   skills: [],
   capabilities: [],
 });
+
+while (true);
