@@ -38,7 +38,7 @@ const config = {
     extensions: ['.tsx', '.ts', '.jsx', '.js', '...'],
   },
   optimization: {
-    minimize: false
+    minimize: true
   },
 };
 
