@@ -45,7 +45,11 @@ export default class WTDoer extends Doer {
     });
   }
 
-  constructor(config: ConfigObject, tasks: WTTask[] = []) {
+  getTaskByUUID(uuid: string, tasks: WTTask[]) {
+    return tasks.find((task: WTTask) => task.uuid === uuid);
+  }
+
+  constructor(config: ConfigObject, tasks: string[] = []) {
     super();
     if(!config.name) throw new Error('WTDoer requires a name');
     this.name = config.name;
@@ -53,6 +57,7 @@ export default class WTDoer extends Doer {
     this.skills = config.skills;
     this.capabilities = config.capabilities;
     this.tasks = tasks;
+    this.uuid = 'wtdoer-' + Math.random().toString(36).substring(2, 15);
   }
 }
 

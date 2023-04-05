@@ -26,7 +26,16 @@ export default class WTTask extends Task {
     });
   }
 
+  getDoerByUUID(uuid: string, doers: WTDoer[]) {
+    return doers.find((doer: WTDoer) => doer.uuid === uuid);
+  }
+
+  getThingByUUID(uuid: string, things: WTThing[]) {
+    return things.find((thing: WTThing) => thing.uuid === uuid);
+  }
+
   constructor(config: {name: string, description: string}) {
     super(config.name, config.description);
+    this.uuid = 'wttask-' + Math.random().toString(36).substring(2, 15);
   }
 }
