@@ -29,6 +29,5 @@ export default class WTThing extends Thing {
     super(name, description, tasks);
     this.name = name;
     this.tasks = tasks;
-    this.uuid = 'wtthing-' + Math.random().toString(36).substring(2, 15);
   }
 }

@@ -36,6 +36,5 @@ export default class WTTask extends Task {
 
   constructor(config: {name: string, description: string}) {
     super(config.name, config.description);
-    this.uuid = 'wttask-' + Math.random().toString(36).substring(2, 15);
   }
 }

@@ -9,20 +9,6 @@ interface ConfigObject {
   capabilities: Capability[];
 }
 
-interface Skill {
-  name: string;
-  description: string;
-  level: number;
-  id: string;
-}
-
-interface Capability {
-  name: string;
-  description: string;
-  needsBuddy: boolean;
-  id: string;
-}
-
 export default class WTDoer extends Doer {
   skillLevel = 0;
   skills: Skill[] = [];
@@ -57,7 +43,6 @@ export default class WTDoer extends Doer {
     this.skills = config.skills;
     this.capabilities = config.capabilities;
     this.tasks = tasks;
-    this.uuid = 'wtdoer-' + Math.random().toString(36).substring(2, 15);
   }
 }
 
