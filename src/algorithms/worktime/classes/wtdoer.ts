@@ -27,21 +27,21 @@ export default class WTDoer extends Doer {
   skillLevel = 0;
   skills: Skill[] = [];
   capabilities: Capability[] = [];
-  tasks: WTTask[] = [];
+  tasks: string[] = [];
   name: string;
 
   newTask(name: string, description = '') {
     const task = new WTTask({name: name, description: description});
-    this.tasks.push(task);
-    task.doers.push(this);
+    this.tasks.push(task.uuid);
+    task.doers.push(this.uuid);
     return task;
   }
 
-  attachTasks(task: WTTask[] | WTTask) {
-    if(!Array.isArray(task)) task = [task];
-    task.forEach((task: WTTask) => {
-      this.tasks.push(task);
-      task.doers.push(this);
+  attachTasks(tasks: WTTask[] | WTTask) {
+    if(!Array.isArray(tasks)) tasks = [tasks];
+    tasks.forEach((task: WTTask) => {
+      this.tasks.push(task.uuid);
+      task.doers.push(this.uuid);
     });
   }
 

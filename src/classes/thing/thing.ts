@@ -2,10 +2,10 @@ import Task from './task';
 export default class Thing {
   name: string;
   description: string;
-  tasks: Task[] = [];
+  tasks: string[] = [];
   uuid: string;
 
-  constructor(name: string, description = '', tasks: Task[] = []) {
+  constructor(name: string, description = '', tasks: string[] = []) {
     this.name = name;
     this.description = description;
     this.tasks = tasks;

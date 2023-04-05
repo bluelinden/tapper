@@ -3,7 +3,7 @@ export default class Task {
   name: string;
   description: string;
   data: unknown;
-  doers: Doer[] = [];
+  doers: string[] = [];
   uuid: string;
   constructor(name: string, description = '') {
     this.name = name;

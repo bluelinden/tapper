@@ -3,7 +3,7 @@ import WTTask from './wttask';
 
 export default class WTThing extends Thing {
   name: string;
-  tasks: WTTask[] = [];
+  tasks: string[] = [];
   uuid: string;
 
   newTask(name: string, description = '') {
