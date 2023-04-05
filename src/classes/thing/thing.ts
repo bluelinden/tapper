@@ -1,5 +1,4 @@
 import Task from './task';
-import Metadata from '../metadata';
 export default class Thing {
   name: string;
   description: string;

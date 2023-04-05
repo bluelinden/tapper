@@ -1,10 +1,10 @@
 import WTDoer from '../classes/wtdoer';
-import Task from '../../../classes/thing/task';
-import Thing from '../../../classes/thing/thing';
+import WTTask from '../classes/wttask';
+import WTThing from '../classes/wtthing';
 
-function getTasksFromThings(things: Thing[]): Task[] {
-  const tasks: Task[] = [];
-  things.forEach((thing: Thing) => {
+function getTasksFromThings(things: WTThing[]): WTTask[] {
+  const tasks: WTTask[] = [];
+  things.forEach((thing: WTThing) => {
     if(thing.tasks) {
       tasks.push(...thing.tasks);
     }
@@ -12,8 +12,8 @@ function getTasksFromThings(things: Thing[]): Task[] {
   return tasks;
 }
 
-function getTasksFromDoers(doers: WTDoer[]): Task[] {
-  const tasks: Task[] = [];
+function getTasksFromDoers(doers: WTDoer[]): WTTask[] {
+  const tasks: WTTask[] = [];
   doers.forEach((doer: WTDoer) => {
     if(doer.tasks) {
       tasks.push(...doer.tasks);
@@ -21,3 +21,5 @@ function getTasksFromDoers(doers: WTDoer[]): Task[] {
   });
   return tasks;
 }
+
+export {getTasksFromThings, getTasksFromDoers};
