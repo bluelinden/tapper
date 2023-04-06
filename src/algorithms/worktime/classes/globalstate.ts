@@ -4,24 +4,27 @@ import WTThing from './wtthing';
 import * as Qualifiers from './wtqualifiers';
 
 interface QualifierObj {
-  capabilityRequirements: Qualifiers.WTCapabilityRequirement[];
-  skillRequirements: Qualifiers.WTSkillRequirement[];
-  capabilities: Qualifiers.WTCapability[];
-  skills: Qualifiers.WTSkill[];
-  attachedCapabilities: Qualifiers.WTAttachedCapability[];
-  attachedSkills: Qualifiers.WTAttachedSkill[];
+  capabilityRequirements: Record<string, Qualifiers.WTCapabilityRequirement>;
+  skillRequirements: Record<string, Qualifiers.WTSkillRequirement>;
+  capabilities: Record<string, Qualifiers.WTCapability>;
+  skills: Record<string, Qualifiers.WTSkill>;
+  attachedCapabilities: Record<string, Qualifiers.WTAttachedCapability>;
+  attachedSkills: Record<string, Qualifiers.WTAttachedSkill>;
 }
 
-export class globalState {
-  static doers: WTDoer[] = [];
-  static tasks: WTTask[] = [];
-  static things: WTThing[] = [];
-  static qualifiers: QualifierObj = {
-    capabilityRequirements: [],
-    skillRequirements: [],
-    capabilities: [],
-    skills: [],
-    attachedCapabilities: [],
-    attachedSkills: []
+class Stator {
+  doers: Record<string, WTDoer> = {};
+  tasks: Record<string, WTTask> = {};
+  things: Record<string, WTThing> = {};
+  qualifiers: QualifierObj = {
+    capabilityRequirements: {},
+    skillRequirements: {},
+    capabilities: {},
+    skills: {},
+    attachedCapabilities: {},
+    attachedSkills: {}
   };
 }
+
+const state = new Stator();
+export { state, Stator };

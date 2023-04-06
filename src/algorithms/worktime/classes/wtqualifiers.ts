@@ -17,11 +17,13 @@ class WTAttachedSkill {
   bias: number;
   parentID: string;
   id: string;
+  doerID: string;
 
-  constructor({parent, bias, level}: {parent: string, bias: number, level: number}) {
+  constructor({parent, bias, level, doer}: {parent: string, bias: number, level: number, doer: string}) {
     this.bias = bias;
     this.level = level;
     this.parentID = parent;
+    this.doerID = doer;
     this.id = idGen('attachedskill');
   }
 }
@@ -42,10 +44,12 @@ class WTAttachedCapability {
   bias: number;
   parentID: string;
   id: string;
+  doerID: string;
 
-  constructor({parent, bias}: {parent: string, bias: number}) {
+  constructor({parent, bias, doer}: {parent: string, bias: number, doer: string}) {
     this.bias = bias;
     this.parentID = parent;
+    this.doerID = doer;
     this.id = idGen('attachedcapability');
   }
 }
@@ -69,12 +73,12 @@ class WTSkillRequirement {
 
 class WTCapabilityRequirement {
   id: string;
-  targetCapabilityID: string;
+  targetID: string;
   name: string;
 
   constructor(name: string, capabilityid: string) {
     this.id = idGen('capabilityrequirement');
-    this.targetCapabilityID = capabilityid;
+    this.targetID = capabilityid;
     this.name = name;
   }
 }

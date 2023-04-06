@@ -6,14 +6,14 @@ interface ConfigObject {
   name: string;
   skillLevel: number;
   dogpileBias: object;
-  skills: Skill[];
-  capabilities: Capability[];
+  skills: string[];
+  capabilities: string[];
 }
 
 export default class WTDoer extends Doer {
   skillLevel = 0;
-  skills: Skill[] = [];
-  capabilities: Capability[] = [];
+  skills: string[] = [];
+  capabilities: string[] = [];
   tasks: string[] = [];
   name: string;
 
@@ -33,13 +33,13 @@ export default class WTDoer extends Doer {
   }
 
   newSkillFromParent(parent: WTSkill, level: number, bias = 0) {
-    const skill = new WTAttachedSkill({parent: parent.id, level: level, bias: bias});
+    const skill = new WTAttachedSkill({parent: parent.id, level: level, bias: bias, doer: this.id});
     this.skills.push(skill.id);
     return skill;
   }
 
   newCapabilityFromParent(parent: WTCapability, bias = 0) {
-    const capability = new WTAttachedCapability({parent: parent.id, bias: bias});
+    const capability = new WTAttachedCapability({parent: parent.id, bias: bias, doer: this.id});
     this.capabilities.push(capability.id);
     return capability;
   }
@@ -59,4 +59,4 @@ export default class WTDoer extends Doer {
   }
 }
 
-export {Skill, Capability, ConfigObject};
+export {ConfigObject};

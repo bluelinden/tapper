@@ -2,13 +2,12 @@ import Task from '../../../classes/thing/task';
 import WTDoer from './wtdoer';
 import WTThing from './wtthing';
 import {WTCapabilityRequirement, WTSkillRequirement} from './wtqualifiers';
-import {Skill, Capability} from './wtdoer';
 
 export default class WTTask extends Task {
   name: string;
-  difficulty: Skill[];
-  needsSkills: WTSkillRequirement[] = [];
-  needsCapabilities: WTCapabilityRequirement[] = [];
+  difficulty: string[];
+  needsSkills: string[] = [];
+  needsCapabilities: string[] = [];
   things: string[] = [];
   doers: string[] = [];
   
@@ -29,19 +28,12 @@ export default class WTTask extends Task {
   }
 
   addSkillRequirement(skill: WTSkillRequirement) {
-    this.needsSkills.push(skill);
+    this.needsSkills.push(skill.id);
+    return skill;
   }
 
   addCapabilityRequirement(capability: WTCapabilityRequirement) {
-    this.needsCapabilities.push(capability);
-  }
-
-  getDoerByid(id: string, doers: WTDoer[]) {
-    return doers.find((doer: WTDoer) => doer.id === id);
-  }
-
-  getThingByid(id: string, things: WTThing[]) {
-    return things.find((thing: WTThing) => thing.id === id);
+    this.needsCapabilities.push(capability.id);
   }
 
   constructor(config: {name: string, description: string}) {
