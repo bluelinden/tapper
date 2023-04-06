@@ -1,5 +1,6 @@
 import Doer from '../../../classes/doer/doer';
 import WTTask from './wttask';
+import { WTAttachedCapability, WTAttachedSkill, WTCapability, WTSkill } from './wtqualifiers';
 
 interface ConfigObject {
   name: string;
@@ -29,6 +30,18 @@ export default class WTDoer extends Doer {
       this.tasks.push(task.id);
       task.doers.push(this.id);
     });
+  }
+
+  newSkillFromParent(parent: WTSkill, level: number, bias = 0) {
+    const skill = new WTAttachedSkill({parent: parent.id, level: level, bias: bias});
+    this.skills.push(skill.id);
+    return skill;
+  }
+
+  newCapabilityFromParent(parent: WTCapability, bias = 0) {
+    const capability = new WTAttachedCapability({parent: parent.id, bias: bias});
+    this.capabilities.push(capability.id);
+    return capability;
   }
 
   getTaskByid(id: string, tasks: WTTask[]) {

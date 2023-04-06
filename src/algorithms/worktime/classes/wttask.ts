@@ -7,7 +7,8 @@ import {Skill, Capability} from './wtdoer';
 export default class WTTask extends Task {
   name: string;
   difficulty: Skill[];
-  requirements: Capability[] = [];
+  needsSkills: WTSkillRequirement[] = [];
+  needsCapabilities: WTCapabilityRequirement[] = [];
   things: string[] = [];
   doers: string[] = [];
   
@@ -27,7 +28,13 @@ export default class WTTask extends Task {
     });
   }
 
-  
+  addSkillRequirement(skill: WTSkillRequirement) {
+    this.needsSkills.push(skill);
+  }
+
+  addCapabilityRequirement(capability: WTCapabilityRequirement) {
+    this.needsCapabilities.push(capability);
+  }
 
   getDoerByid(id: string, doers: WTDoer[]) {
     return doers.find((doer: WTDoer) => doer.id === id);

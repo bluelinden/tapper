@@ -1,45 +1,52 @@
 import idGen from '../../../classes/identifier';
 
-interface WTSkillConfig {
-  name: string;
-  friendlyName: string;
-  bias: number;
-  level: number;
-}
-
 class WTSkill {
   id: string;
-  level: number;
   name: string;
   friendlyName: string;
-  bias: number;
 
-  constructor(config: WTSkillConfig) {
-    this.name = config.name;
-    this.friendlyName = config.friendlyName;
-    this.bias = config.bias;
-    this.level = config.level;
+  constructor({name, friendlyName}: {name: string, friendlyName: string}) {
+    this.name = name;
+    this.friendlyName = friendlyName;
     this.id = idGen('skill');
   }
 }
 
-interface WTCapabilityConfig {
-  name: string;
-  friendlyName: string;
+class WTAttachedSkill {
+  level: number;
   bias: number;
+  parentID: string;
+  id: string;
+
+  constructor({parent, bias, level}: {parent: string, bias: number, level: number}) {
+    this.bias = bias;
+    this.level = level;
+    this.parentID = parent;
+    this.id = idGen('attachedskill');
+  }
 }
 
 class WTCapability {
   id: string;
   name: string;
   friendlyName: string;
-  bias: number;
 
-  constructor(config: WTCapabilityConfig) {
-    this.name = config.name;
-    this.friendlyName = config.friendlyName;
-    this.bias = config.bias;
+  constructor({name, friendlyName}: {name: string, friendlyName: string}) {
+    this.name = name;
+    this.friendlyName = friendlyName;
     this.id = idGen('capability');
+  }
+}
+
+class WTAttachedCapability {
+  bias: number;
+  parentID: string;
+  id: string;
+
+  constructor({parent, bias}: {parent: string, bias: number}) {
+    this.bias = bias;
+    this.parentID = parent;
+    this.id = idGen('attachedcapability');
   }
 }
 
@@ -72,4 +79,4 @@ class WTCapabilityRequirement {
   }
 }
 
-export {WTSkill, WTCapability, WTSkillRequirement, WTCapabilityRequirement};
+export {WTSkill, WTAttachedSkill, WTCapability, WTAttachedCapability, WTSkillRequirement, WTCapabilityRequirement};
