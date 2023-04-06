@@ -4,25 +4,25 @@ import WTTask from './wttask';
 export default class WTThing extends Thing {
   name: string;
   tasks: string[] = [];
-  uuid: string;
+  id: string;
 
   newTask(name: string, description = '') {
     const task = new WTTask({name: name, description: description});
-    this.tasks.push(task.uuid);
-    task.things.push(this.uuid);
+    this.tasks.push(task.id);
+    task.things.push(this.id);
     return task;
   }
 
   attachTasks(task: WTTask[] | WTTask) {
     if(!Array.isArray(task)) task = [task];
     task.forEach((task: WTTask) => {
-      this.tasks.push(task.uuid);
-      task.things.push(this.uuid);
+      this.tasks.push(task.id);
+      task.things.push(this.id);
     });
   }
 
-  getTaskByUUID(uuid: string, tasks: WTTask[]) {
-    return tasks.find((task: WTTask) => task.uuid === uuid);
+  getTaskByID(id: string, tasks: WTTask[]) {
+    return tasks.find((task: WTTask) => task.id === id);
   }
 
   constructor(name: string, description = '', tasks: string[] = []) {

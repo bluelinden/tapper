@@ -1,6 +1,7 @@
 import Task from '../../../classes/thing/task';
 import WTDoer from './wtdoer';
 import WTThing from './wtthing';
+import {WTCapabilityRequirement, WTSkillRequirement} from './wtqualifiers';
 import {Skill, Capability} from './wtdoer';
 
 export default class WTTask extends Task {
@@ -13,25 +14,27 @@ export default class WTTask extends Task {
   attachToThings(things: WTThing[] | WTThing) {
     if(!Array.isArray(things)) things = [things];
     things.forEach((thing: WTThing) => {
-      thing.tasks.push(this.uuid);
-      this.things.push(thing.uuid);
+      thing.tasks.push(this.id);
+      this.things.push(thing.id);
     });
   }
 
   attachToDoers(doers: WTDoer[] | WTDoer) {
     if(!Array.isArray(doers)) doers = [doers];
     doers.forEach((doer: WTDoer) => {
-      doer.tasks.push(this.uuid);
-      this.doers.push(doer.uuid);
+      doer.tasks.push(this.id);
+      this.doers.push(doer.id);
     });
   }
 
-  getDoerByUUID(uuid: string, doers: WTDoer[]) {
-    return doers.find((doer: WTDoer) => doer.uuid === uuid);
+  
+
+  getDoerByid(id: string, doers: WTDoer[]) {
+    return doers.find((doer: WTDoer) => doer.id === id);
   }
 
-  getThingByUUID(uuid: string, things: WTThing[]) {
-    return things.find((thing: WTThing) => thing.uuid === uuid);
+  getThingByid(id: string, things: WTThing[]) {
+    return things.find((thing: WTThing) => thing.id === id);
   }
 
   constructor(config: {name: string, description: string}) {

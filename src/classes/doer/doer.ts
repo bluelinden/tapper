@@ -1,10 +1,9 @@
-import Task from '../thing/task';
-import {v4 as uuidv4} from 'uuid';
+import idGen from '../identifier';
 export default class Doer {
-  uuid: string;
+  id: string;
   tasks: string[] = [];
 
   constructor() {
-    this.uuid = uuidv4();
+    this.id = idGen('doer');
   }
 }

@@ -18,21 +18,21 @@ export default class WTDoer extends Doer {
 
   newTask(name: string, description = '') {
     const task = new WTTask({name: name, description: description});
-    this.tasks.push(task.uuid);
-    task.doers.push(this.uuid);
+    this.tasks.push(task.id);
+    task.doers.push(this.id);
     return task;
   }
 
   attachTasks(tasks: WTTask[] | WTTask) {
     if(!Array.isArray(tasks)) tasks = [tasks];
     tasks.forEach((task: WTTask) => {
-      this.tasks.push(task.uuid);
-      task.doers.push(this.uuid);
+      this.tasks.push(task.id);
+      task.doers.push(this.id);
     });
   }
 
-  getTaskByUUID(uuid: string, tasks: WTTask[]) {
-    return tasks.find((task: WTTask) => task.uuid === uuid);
+  getTaskByid(id: string, tasks: WTTask[]) {
+    return tasks.find((task: WTTask) => task.id === id);
   }
 
   constructor(config: ConfigObject, tasks: string[] = []) {

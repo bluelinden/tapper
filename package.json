@@ -26,12 +26,9 @@
   },
   "homepage": "https://github.com/bluelinden/tapper#readme",
   "devDependencies": {
-    "@babel/core": "^7.21.4",
-    "@babel/preset-env": "^7.21.4",
     "@typescript-eslint/eslint-plugin": "^5.57.0",
     "@typescript-eslint/parser": "^5.57.0",
     "@webpack-cli/generators": "^3.0.1",
-    "babel-loader": "^9.1.2",
     "eslint": "^8.37.0",
     "prettier": "^2.8.7",
     "ts-loader": "^9.4.2",
@@ -41,7 +38,6 @@
   },
   "dependencies": {
     "class-transformer": "^0.5.1",
-    "reflect-metadata": "^0.1.13",
-    "uuid": "^9.0.0"
+    "reflect-metadata": "^0.1.13"
   }
 }

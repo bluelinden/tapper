@@ -1,14 +1,13 @@
-import Doer from '../doer/doer';
-import {v4 as uuidv4} from 'uuid';
+import idGen from '../identifier';
 export default class Task {
   name: string;
   description: string;
   data: unknown;
   doers: string[] = [];
-  uuid: string;
+  id: string;
   constructor(name: string, description = '') {
     this.name = name;
     this.description = description;
-    this.uuid = uuidv4();
+    this.id = idGen('task');
   }
 }
