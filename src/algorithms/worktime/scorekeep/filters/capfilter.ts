@@ -1,5 +1,5 @@
-import * as Qualifiers from '../classes/wtqualifiers';
-import { Stator } from '../classes/globalstate';
+import * as Qualifiers from '../../classes/wtqualifiers';
+import { Stator } from '../../classes/globalstate';
 
 
 // the way this system works is simple:
