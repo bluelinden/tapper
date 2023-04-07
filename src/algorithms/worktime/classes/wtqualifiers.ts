@@ -59,14 +59,14 @@ class WTSkillRequirement {
   skill: string;
   biasMultiplier: number;
   floor = 0;
-  targetSkillID: string;
+  targetID: string;
   name: string;
 
   constructor(name: string, skillID: string, bias = 0.1, floor = 0) {
     this.id = idGen('skillrequirement');
     this.biasMultiplier = bias;
     this.floor = floor;
-    this.targetSkillID = skillID;
+    this.targetID = skillID;
     this.name = name;
   }
 }
