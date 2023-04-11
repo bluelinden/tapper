@@ -5,11 +5,11 @@ import {WTCapabilityRequirement, WTSkillRequirement} from './wtqualifiers';
 
 export default class WTTask extends Task {
   name: string;
-  difficulty: string[];
   needsSkills: string[] = [];
   needsCapabilities: string[] = [];
   things: string[] = [];
   doers: string[] = [];
+  isDone = false;
   
   attachToThings(things: WTThing[] | WTThing) {
     if(!Array.isArray(things)) things = [things];

@@ -8,15 +8,18 @@ export default function jobScore(doerID: string, taskID: string, stateObj: Stato
   const doer = stateObj.doers[doerID];
   const task = stateObj.tasks[taskID];
 
-  const jobScores: number[] = [];
+  const taskDiffs: number[] = [];
 
   doer.tasks.forEach((taskID: string) => {
-    const task = stateObj.tasks[taskID];
-    const taskDifficulty = task.difficulty;
-    const jobScore = 1 - (taskDifficulty * (doer.skillLevel / 100));
-    jobScores.push(jobScore);
+    const testTask = stateObj.tasks[taskID];
+    const taskDifficulty = testTask.needsSkills.length;
+    let taskScore = 1 - ((5 * taskDifficulty ) + (doer.tasks.length));
+    if (testTask.isDone) taskScore = taskScore * 0.5;
+    taskDiffs.push(taskScore);
   });
 
-  const jobScoreAverage = (jobScores.reduce((a, b) => a + b, 0) / jobScores.length) / 100;
-  return jobScoreAverage;
+  // add all items in the array together
+  const jobScore = Math.max(1 - ((taskDiffs.reduce((a, b) => a + b, 0)) / 100), 0);
+
+  return jobScore;
 }
