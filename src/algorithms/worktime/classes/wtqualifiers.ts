@@ -58,6 +58,7 @@ class WTSkillRequirement {
   id: string;
   skill: string;
   biasMultiplier: number;
+  difficulty: number;
   floor = 0;
   targetID: string;
   name: string;
