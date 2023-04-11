@@ -25,6 +25,6 @@ export default function skillScore(doerID: string, taskID: string, stateObj: Sta
 
     skillScores.push( 1 - (skillRequirement.difficulty * (attachedSkill.level / 100)));
   });
-  const skillScoreAverage = skillScores.reduce((a, b) => a + b, 0) / skillScores.length;
+  const skillScoreAverage = (skillScores.reduce((a, b) => a + b, 0) / skillScores.length) / 100;
   return skillScoreAverage;
 }
