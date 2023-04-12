@@ -1,5 +1,5 @@
-import {WTDoer, WTTask, WTThing} from './algorithms/worktime/index';
-import * as Algorithms from './algorithms/index';
+import {WTDoer, WTTask, WTThing} from './algorithms/worktime/score.mjs';
+import * as Algorithms from './algorithms/index.mjs';
 
 class TapperJS {
   static algorithm = Algorithms;

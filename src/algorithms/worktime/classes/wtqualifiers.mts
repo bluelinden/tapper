@@ -1,4 +1,4 @@
-import idGen from '../../../classes/identifier';
+import idGen from '../../../classes/identifier.mjs';
 
 class WTSkill {
   id: string;

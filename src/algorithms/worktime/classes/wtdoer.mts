@@ -1,6 +1,6 @@
-import Doer from '../../../classes/doer/doer';
-import WTTask from './wttask';
-import { WTAttachedCapability, WTAttachedSkill, WTCapability, WTSkill } from './wtqualifiers';
+import Doer from '../../../classes/doer/doer.mjs';
+import WTTask from './wttask.mjs';
+import { WTAttachedCapability, WTAttachedSkill, WTCapability, WTSkill } from './wtqualifiers.mjs';
 
 interface ConfigObject {
   name: string;

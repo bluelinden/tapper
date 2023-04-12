@@ -1,7 +1,4 @@
-import WTDoer from '../../classes/wtdoer';
-import WTTask from '../../classes/wttask';
-import { Stator } from '../../classes/globalstate';
-
+import { Stator } from '../../classes/globalstate.mjs';
 
 // get a score from 0 to 1 for how many jobs a doer has at this moment, accounting for difficulty of the jobs they have.
 export default function jobScore(doerID: string, stateObj: Stator){

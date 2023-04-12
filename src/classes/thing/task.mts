@@ -1,4 +1,4 @@
-import idGen from '../identifier';
+import idGen from '../identifier.mjs';
 export default class Task {
   name: string;
   description: string;

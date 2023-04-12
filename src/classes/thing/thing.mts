@@ -1,4 +1,4 @@
-import Task from './task';
+import Task from './task.mjs';
 import {v4 as idv4} from 'id';
 export default class Thing {
   name: string;

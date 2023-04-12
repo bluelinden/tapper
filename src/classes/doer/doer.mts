@@ -1,4 +1,4 @@
-import idGen from '../identifier';
+import idGen from '../identifier.mjs';
 export default class Doer {
   id: string;
   tasks: string[] = [];

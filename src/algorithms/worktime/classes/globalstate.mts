@@ -1,7 +1,7 @@
-import WTDoer from './wtdoer';
-import WTTask from './wttask';
-import WTThing from './wtthing';
-import * as Qualifiers from './wtqualifiers';
+import WTDoer from './wtdoer.mjs';
+import WTTask from './wttask.mjs';
+import WTThing from './wtthing.mjs';
+import * as Qualifiers from './wtqualifiers.mjs';
 
 interface QualifierObj {
   capabilityRequirements: Record<string, Qualifiers.WTCapabilityRequirement>;

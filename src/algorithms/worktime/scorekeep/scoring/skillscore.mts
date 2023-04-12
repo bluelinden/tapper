@@ -1,5 +1,5 @@
-import * as Qualifiers from '../../classes/wtqualifiers';
-import { Stator } from '../../classes/globalstate';
+import * as Qualifiers from '../../classes/wtqualifiers.mjs';
+import { Stator } from '../../classes/globalstate.mjs';
 
 // based on a doer's skill level and the difficulty of any task, this function will return an object with the doer's id and their skill score. this score is made up of the difficulty of the task subtracted from the skill level in such a way that the end result is between 0 and 1. 
 

@@ -1,10 +1,10 @@
-import WTDoer from '../classes/wtdoer';
-import WTTask from '../classes/wttask';
-import WTThing from '../classes/wtthing';
+import WTDoer from '../classes/wtdoer.mjs';
+import WTTask from '../classes/wttask.mjs';
+import WTThing from '../classes/wtthing.mjs';
 
-function getTasksFromThings(things: WTThing[]): WTTask[] {
+function getTasksFromThings(things: string[]): WTTask[] {
   const tasks: WTTask[] = [];
-  things.forEach((thing: WTThing) => {
+  things.forEach((thing: string) => {
     if(thing.tasks) {
       tasks.push(...thing.tasks);
     }

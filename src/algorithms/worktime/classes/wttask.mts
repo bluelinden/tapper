@@ -1,7 +1,7 @@
-import Task from '../../../classes/thing/task';
-import WTDoer from './wtdoer';
-import WTThing from './wtthing';
-import {WTCapabilityRequirement, WTSkillRequirement} from './wtqualifiers';
+import Task from '../../../classes/thing/task.mjs';
+import WTDoer from './wtdoer.mjs';
+import WTThing from './wtthing.mjs';
+import {WTCapabilityRequirement, WTSkillRequirement} from './wtqualifiers.mjs';
 
 export default class WTTask extends Task {
   name: string;

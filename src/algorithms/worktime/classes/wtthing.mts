@@ -1,5 +1,5 @@
-import Thing from '../../../classes/thing/thing';
-import WTTask from './wttask';
+import Thing from '../../../classes/thing/thing.mjs';
+import WTTask from './wttask.mjs';
 
 export default class WTThing extends Thing {
   name: string;
