@@ -12,6 +12,11 @@ interface QualifierObj {
   attachedSkills: Record<string, Qualifiers.WTAttachedSkill>;
 }
 
+interface ScoreObj {
+  jobScore: number;
+  skillScore: number;
+}
+
 class Stator {
   doers: Record<string, WTDoer> = {};
   tasks: Record<string, WTTask> = {};
@@ -24,6 +29,7 @@ class Stator {
     attachedCapabilities: {},
     attachedSkills: {}
   };
+  scores: Record<string, ScoreObj> = {};
 }
 
 const state = new Stator();

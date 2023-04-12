@@ -10,6 +10,7 @@ export default class WTTask extends Task {
   things: string[] = [];
   doers: string[] = [];
   isDone = false;
+  isReady: boolean;
   
   attachToThings(things: WTThing[] | WTThing) {
     if(!Array.isArray(things)) things = [things];
