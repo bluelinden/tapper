@@ -5,7 +5,7 @@ const path = require('path');
 const isProduction = process.env.NODE_ENV == 'production';
 
 const config = {
-  entry: './src/index.ts',
+  entry: './src/index.mts',
   output: {
     path: path.resolve(__dirname, 'dist'),
     globalObject: 'this',
@@ -21,7 +21,7 @@ const config = {
   module: {
     rules: [
       {
-        test: /\.(ts|tsx)$/i,
+        test: /\.(mts|ts|tsx)$/i,
         loader: 'ts-loader',
         exclude: ['/node_modules/'],
       },
@@ -35,7 +35,11 @@ const config = {
     ],
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.jsx', '.js', '...'],
+    extensions: ['.tsx', '.ts', '.jsx', '.js', '.mts', '.mjs', '...'],
+    extensionAlias: {
+      '.js': ['.ts', '.js'],
+      '.mjs': ['.mts', '.mjs']
+    }
   },
   optimization: {
     minimize: true

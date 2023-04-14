@@ -1,5 +1,5 @@
 import Task from './task.mjs';
-import {v4 as idv4} from 'id';
+import idGen from '../identifier.mjs';
 export default class Thing {
   name: string;
   description: string;
@@ -10,7 +10,7 @@ export default class Thing {
     this.name = name;
     this.description = description;
     this.tasks = tasks;
-    this.id = idv4();
+    this.id = idGen('thing');
   }
 
 }

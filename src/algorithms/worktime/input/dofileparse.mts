@@ -1,6 +1,6 @@
 import WTDoer from '../classes/wtdoer.mjs';
 import WTTask from '../classes/wttask.mjs';
-import WTThing from '../classes/wtthing.mjs';
+import WTThing from '../classes/wtthing';
 import {plainToClass} from 'class-transformer';
 import 'reflect-metadata';
 
