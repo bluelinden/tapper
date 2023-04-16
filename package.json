@@ -28,14 +28,9 @@
   },
   "homepage": "https://github.com/bluelinden/tapper#readme",
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.57.0",
-    "@typescript-eslint/parser": "^5.57.0",
-    "@webpack-cli/generators": "^3.0.1",
     "eslint": "^8.37.0",
     "prettier": "^2.8.7",
-    "ts-loader": "^9.4.2",
-    "typescript": "^5.0.3",
-    "webpack-cli": "^5.0.1"
+    "typescript": "^5.0.3"
   },
   "dependencies": {
     "class-transformer": "^0.5.1",
