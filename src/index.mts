@@ -1,17 +1,6 @@
 import {WTDoer, WTTask, WTThing} from './algorithms/worktime/score.mjs';
 import * as Algorithms from './algorithms/index.mjs';
 
-class TapperJS {
-  static algorithm = Algorithms;
-}
-
-type TapperGlobal = typeof globalThis & {
-  Tapper: TapperJS;
-};
-
-(globalThis as TapperGlobal).Tapper = TapperJS;
-
-
 
 const thing = new WTThing('thing');
 const task = new WTTask({name: 'task', description: 'description'});
