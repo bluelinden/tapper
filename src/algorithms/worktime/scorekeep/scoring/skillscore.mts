@@ -4,7 +4,7 @@ import { Stator } from '../../classes/globalstate.mjs';
 // based on a doer's skill level and the difficulty of any task, this function will return an object with the doer's id and their skill score. this score is made up of the difficulty of the task subtracted from the skill level in such a way that the end result is between 0 and 1. 
 
 // algorithm: skillScore = 1 - (skillRequirement.difficulty * (doerSkill.level / 100));
-export default function skillScore(doerID: string, taskID: string, stateObj: Stator){
+export default async function skillScore(doerID: string, taskID: string, stateObj: Stator){
   const doer = stateObj.doers[doerID];
   const task = stateObj.tasks[taskID];
 

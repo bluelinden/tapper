@@ -3,7 +3,7 @@ import { Stator } from '../../classes/globalstate.mjs';
 
 // this is extremely similar to the capfilter system, however instead of using capabilities, it uses skills. it creates skill scores for each doer, and if their skill is below the floor, they are not included in the list of doers who can do the task. also, if they don't have the skill to begin with, they aren't included.
 
-export default function doersWhoHaveSkills(taskID: string, stateObj: Stator){
+export default async function doersWhoHaveSkills(taskID: string, stateObj: Stator){
   const task = stateObj.tasks[taskID];
   const doersWhoHaveSkills: string[] = [];
 
@@ -18,6 +18,6 @@ export default function doersWhoHaveSkills(taskID: string, stateObj: Stator){
         doersWhoHaveSkills.push(doer.id);
       }
     });
-    return doersWhoHaveSkills;
   });
+  return doersWhoHaveSkills;
 }

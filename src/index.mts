@@ -12,4 +12,4 @@ const doer = new WTDoer({
   capabilities: [],
 });
 
-while (true);
+while (true); // Keep the process alive so we can debug it

@@ -7,7 +7,7 @@ import { Stator } from '../../classes/globalstate.mjs';
 // 2. a matching capability requirement is created, with the target capability ID attached, matching the ID of the capability
 // 3. an attached capability is created, with the parent capability id attached. This is the capability that the doer has.
 // 4. the way to find the doers who have a capability is to find 
-export default function doersWhoHaveCapabilities(taskID: string, stateObj: Stator){
+export default async function doersWhoHaveCapabilities(taskID: string, stateObj: Stator){
   const task = stateObj.tasks[taskID];
   const doersWhoHaveCapabilities: string[] = [];
   
@@ -19,8 +19,7 @@ export default function doersWhoHaveCapabilities(taskID: string, stateObj: Stato
     attachedCapabilities.forEach((attachedCapability: Qualifiers.WTAttachedCapability) => {
       const doer = stateObj.doers[attachedCapability.doerID];
       doersWhoHaveCapabilities.push(doer.id);
-    });
-
-    return doersWhoHaveCapabilities;
+    });  
   });
+  return doersWhoHaveCapabilities;
 }
