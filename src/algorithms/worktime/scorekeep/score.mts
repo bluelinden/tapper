@@ -1,4 +1,4 @@
-import { Stator } from '../classes/globalstate.mjs';
+import { Stator, ScoreObj } from '../classes/globalstate.mjs';
 
 import capFilter from './filters/capfilter.mjs';
 import skillFilter from './filters/skillfilter.mjs';
@@ -33,12 +33,7 @@ export default async function getScores(taskID: string, stateObj: Stator) {
     ]);
   }
 
-  interface Score {
-    job: number;
-    skill: number;
-  }
-
-  const scores: Record<string, Score> = {};
+  const scores: Record<string, ScoreObj> = {};
   const scorePromises: Promise<void>[] = [];
 
   /**
@@ -67,8 +62,7 @@ export default async function getScores(taskID: string, stateObj: Stator) {
   // wait for all the promises to resolve
   await Promise.all(scorePromises);
 
-  // remove all scores with any scores of zero or undefined
-  const doerScores = Object.entries(scores).filter(([, score]) => score.job !== 0 && score.skill !== 0 && score.job !== undefined && score.skill !== undefined);
+  stateObj.scores = scores;
 
-  return doerScores;
+  return scores;
 }

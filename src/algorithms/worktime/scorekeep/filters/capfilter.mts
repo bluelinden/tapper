@@ -9,12 +9,13 @@ import { Stator } from '../../classes/globalstate.mjs';
 // 4. the way to find the doers who have a capability is to find
 /**
  *
- * @param taskID
- * @param stateObj
+ * @param taskID - the ID of the task
+ * @param stateObj - the global state object
+ * @returns an array of doer IDs
  */
 export default async function doersWhoHaveCapabilities(taskID: string, stateObj: Stator){
   const task = stateObj.tasks[taskID];
-  const doersWhoHaveCapabilities: string[] = [];
+  const theDoersWhoHaveCapabilities: string[] = [];
 
   task.needsCapabilities.forEach((capabilityID: string) => {
     const capabilityRequirement = stateObj.qualifiers.capabilityRequirements[capabilityID];
@@ -23,8 +24,8 @@ export default async function doersWhoHaveCapabilities(taskID: string, stateObj:
 
     attachedCapabilities.forEach((attachedCapability: Qualifiers.WTAttachedCapability) => {
       const doer = stateObj.doers[attachedCapability.doerID];
-      doersWhoHaveCapabilities.push(doer.id);
+      theDoersWhoHaveCapabilities.push(doer.id);
     });
   });
-  return doersWhoHaveCapabilities;
+  return theDoersWhoHaveCapabilities;
 }

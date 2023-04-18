@@ -3,6 +3,9 @@ import WTTask from './wttask.mjs';
 import WTThing from './wtthing.mjs';
 import * as Qualifiers from './wtqualifiers.mjs';
 
+/**
+ * Qualifier records
+ */
 interface QualifierObj {
   capabilityRequirements: Record<string, Qualifiers.WTCapabilityRequirement>;
   skillRequirements: Record<string, Qualifiers.WTSkillRequirement>;
@@ -12,11 +15,14 @@ interface QualifierObj {
   attachedSkills: Record<string, Qualifiers.WTAttachedSkill>;
 }
 
-interface ScoreObj {
-  jobScore: number;
-  skillScore: number;
+export interface ScoreObj {
+  job: number;
+  skill: number;
 }
 
+/**
+ * A global state object
+ */
 class Stator {
   doers: Record<string, WTDoer> = {};
   tasks: Record<string, WTTask> = {};

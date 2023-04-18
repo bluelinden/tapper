@@ -1,4 +1,4 @@
-import {WTDoer, WTTask, WTThing} from './algorithms/worktime/score.mjs';
+import {WTDoer, WTTask, WTThing} from './algorithms/worktime/index.mjs';
 import * as Algorithms from './algorithms/index.mjs';
 
 

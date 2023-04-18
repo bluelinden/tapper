@@ -1,2 +1,2 @@
-import * as Worktime from './worktime/score.mjs';
+import * as Worktime from './worktime/index.mjs';
 export {Worktime};

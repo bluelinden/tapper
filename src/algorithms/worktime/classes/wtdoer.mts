@@ -2,11 +2,49 @@ import Doer from '../../../classes/doer/doer.mjs';
 import WTTask from './wttask.mjs';
 import { WTAttachedCapability, WTAttachedSkill, WTCapability, WTSkill } from './wtqualifiers.mjs';
 
+/**
+ * A config object for WTDoer.
+ */
 interface ConfigObject {
+
+  /**
+   * The name of the doer
+   */
   name: string;
+
+  /**
+   * The skill level of the doer
+   * @default 0
+   * @description This is the skill level of the doer. It is used to determine the doer's skill score.
+   */
   skillLevel: number;
+
+  /**
+   * The doer's dogpile bias level
+   * @default 0
+   * @description This is the dogpile bias level of the doer. It is used to reduce the amount of work on a doer's plate, therefore avoiding a dogpile.
+   */
   dogpileBias: object;
+
+  /**
+   * The doer's skills
+   * @default []
+   * @description This is an array of the doer's WTAttachedSkill IDs. It is used to determine the doer's skill score.
+   * @see {@link WTSkill}
+   * @see {@link WTAttachedSkill}
+   * @see {@link WTSkillRequirement}
+   */
   skills: string[];
+
+  /**
+   * The doer's capabilities
+   * @default []
+   * @description This is an array of the doer's WTAttachedCapability IDs. It is used to determine what tasks a doer can work on.
+   * @see {@link WTCapability}
+   * @see {@link WTAttachedCapability}
+   * @see {@link WTCapabilityRequirement}
+   * @see {@link WTTask}
+   */
   capabilities: string[];
 }
 
@@ -46,10 +84,11 @@ export default class WTDoer extends Doer {
     return capability;
   }
 
-  getTaskByid(id: string, tasks: WTTask[]) {
-    return tasks.find((task: WTTask) => task.id === id);
-  }
-
+  /**
+   * WTDoer constructor
+   * @param config - WTDoer config object
+   * @param tasks - Array of task IDs
+   */
   constructor(config: ConfigObject, tasks: string[] = []) {
     super();
     if (!config.name) {
