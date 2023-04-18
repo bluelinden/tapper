@@ -3,8 +3,9 @@ import { Stator } from '../../classes/globalstate.mjs';
 // get a score from 0 to 1 for how many jobs a doer has at this moment, accounting for difficulty of the jobs they have.
 /**
  *
- * @param doerID
- * @param stateObj
+ * @param doerID - the doer's id
+ * @param stateObj - the global state object
+ * @returns the doer's job score
  */
 export default async function jobScore(doerID: string, stateObj: Stator){
   const doer = stateObj.doers[doerID];
@@ -24,7 +25,5 @@ export default async function jobScore(doerID: string, stateObj: Stator){
   });
 
   // add all items in the array together
-  const jobScore = Math.max(1 - (taskDiffs.reduce((a, b) => a + b, 0)), 0 );
-
-  return jobScore;
+  return Math.max(1 - (taskDiffs.reduce((a, b) => a + b, 0)), 0 );
 }

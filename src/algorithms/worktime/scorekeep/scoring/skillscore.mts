@@ -3,12 +3,12 @@ import { Stator } from '../../classes/globalstate.mjs';
 
 // based on a doer's skill level and the difficulty of any task, this function will return an object with the doer's id and their skill score. this score is made up of the difficulty of the task subtracted from the skill level in such a way that the end result is between 0 and 1.
 
-// algorithm: skillScore = 1 - (skillRequirement.difficulty * (doerSkill.level / 100));
 /**
  *
- * @param doerID
- * @param taskID
- * @param stateObj
+ * @param doerID - the doer's id
+ * @param taskID - the task's id
+ * @param stateObj - the global state object
+ * @returns the doer's skill score
  */
 export default async function skillScore(doerID: string, taskID: string, stateObj: Stator){
   const doer = stateObj.doers[doerID];
@@ -21,11 +21,11 @@ export default async function skillScore(doerID: string, taskID: string, stateOb
     const originalSkill = stateObj.qualifiers.skills[skillRequirement.targetID]; // this is the skill object
 
     const doerSkills: Qualifiers.WTAttachedSkill[] = [];
-    doer.skills.forEach((skillID: string) => {
-      doerSkills.push(stateObj.qualifiers.attachedSkills[skillID]);
+    doer.skills.forEach((currentSkillID: string) => {
+      doerSkills.push(stateObj.qualifiers.attachedSkills[currentSkillID]);
     });
 
-    const attachedSkill = doerSkills.find((attachedSkill: Qualifiers.WTAttachedSkill) => attachedSkill.parentID === originalSkill.id);
+    const attachedSkill = doerSkills.find((currentAttachedSkill: Qualifiers.WTAttachedSkill) => currentAttachedSkill.parentID === originalSkill.id);
 
     if (!attachedSkill) {
       return;

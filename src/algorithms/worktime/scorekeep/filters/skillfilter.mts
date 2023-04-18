@@ -5,12 +5,13 @@ import { Stator } from '../../classes/globalstate.mjs';
 
 /**
  *
- * @param taskID
- * @param stateObj
+ * @param taskID - the task's id
+ * @param stateObj - the global state object
+ * @returns an array of doer ids
  */
 export default async function doersWhoHaveSkills(taskID: string, stateObj: Stator){
   const task = stateObj.tasks[taskID];
-  const doersWhoHaveSkills: string[] = [];
+  const theDoersWhoHaveSkills: string[] = [];
 
   task.needsSkills.forEach((skillID: string) => {
     const skillRequirement = stateObj.qualifiers.skillRequirements[skillID];
@@ -20,9 +21,9 @@ export default async function doersWhoHaveSkills(taskID: string, stateObj: Stato
     attachedSkills.forEach((attachedSkill: Qualifiers.WTAttachedSkill) => {
       const doer = stateObj.doers[attachedSkill.doerID];
       if (attachedSkill.level >= skillRequirement.floor){
-        doersWhoHaveSkills.push(doer.id);
+        theDoersWhoHaveSkills.push(doer.id);
       }
     });
   });
-  return doersWhoHaveSkills;
+  return theDoersWhoHaveSkills;
 }
