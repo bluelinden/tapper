@@ -34,7 +34,6 @@ export default class WTTask extends Task {
 
   addSkillRequirement(skill: WTSkillRequirement) {
     this.needsSkills.push(skill.id);
-    return skill;
   }
 
   addCapabilityRequirement(capability: WTCapabilityRequirement) {

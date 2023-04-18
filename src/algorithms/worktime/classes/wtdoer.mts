@@ -73,7 +73,7 @@ export default class WTDoer extends Doer {
   }
 
   newSkillFromParent(parent: WTSkill, level: number, bias = 0) {
-    const skill = new WTAttachedSkill({parent: parent.id, level: level, bias: bias, doer: this.id});
+    const skill = new WTAttachedSkill({parentID: parent.id, level: level, bias: bias, doerID: this.id});
     this.skills.push(skill.id);
     return skill;
   }
