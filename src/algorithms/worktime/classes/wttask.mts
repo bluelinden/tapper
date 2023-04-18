@@ -11,9 +11,11 @@ export default class WTTask extends Task {
   doers: string[] = [];
   isDone = false;
   isReady: boolean;
-  
+
   attachToThings(things: WTThing[] | WTThing) {
-    if(!Array.isArray(things)) things = [things];
+    if (!Array.isArray(things)) {
+      things = [things];
+    }
     things.forEach((thing: WTThing) => {
       thing.tasks.push(this.id);
       this.things.push(thing.id);
@@ -21,7 +23,9 @@ export default class WTTask extends Task {
   }
 
   attachToDoers(doers: WTDoer[] | WTDoer) {
-    if(!Array.isArray(doers)) doers = [doers];
+    if (!Array.isArray(doers)) {
+      doers = [doers];
+    }
     doers.forEach((doer: WTDoer) => {
       doer.tasks.push(this.id);
       this.doers.push(doer.id);

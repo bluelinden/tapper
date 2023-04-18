@@ -1,10 +1,8 @@
 import idGen from '../identifier.mjs';
-var Doer = /** @class */ (function () {
-    function Doer() {
+export default class Doer {
+    constructor() {
         this.tasks = [];
         this.id = idGen('doer');
     }
-    return Doer;
-}());
-export default Doer;
+}
 //# sourceMappingURL=doer.mjs.map

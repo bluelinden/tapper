@@ -14,7 +14,9 @@ export default class WTThing extends Thing {
   }
 
   attachTasks(task: WTTask[] | WTTask) {
-    if(!Array.isArray(task)) task = [task];
+    if (!Array.isArray(task)) {
+      task = [task];
+    }
     task.forEach((task: WTTask) => {
       this.tasks.push(task.id);
       task.things.push(this.id);

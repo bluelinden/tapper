@@ -1,6 +1,11 @@
 import { Stator } from '../../classes/globalstate.mjs';
 
 // get a score from 0 to 1 for how many jobs a doer has at this moment, accounting for difficulty of the jobs they have.
+/**
+ *
+ * @param doerID
+ * @param stateObj
+ */
 export default async function jobScore(doerID: string, stateObj: Stator){
   const doer = stateObj.doers[doerID];
 
@@ -10,8 +15,11 @@ export default async function jobScore(doerID: string, stateObj: Stator){
     const testTask = stateObj.tasks[taskID];
     const taskDifficulty = testTask.needsSkills.length;
     let taskScore = 1 - (10 * taskDifficulty );
-    if (testTask.isDone) taskScore = taskScore * 0.6;
-    else if  (!testTask.isReady) taskScore = taskScore * 0.3;
+    if (testTask.isDone) {
+      taskScore = taskScore * 0.6;
+    } else if  (!testTask.isReady) {
+      taskScore = taskScore * 0.3;
+    }
     taskDiffs.push(taskScore);
   });
 

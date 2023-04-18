@@ -27,7 +27,7 @@ class Stator {
     capabilities: {},
     skills: {},
     attachedCapabilities: {},
-    attachedSkills: {}
+    attachedSkills: {},
   };
   scores: Record<string, ScoreObj> = {};
 }

@@ -10,6 +10,10 @@ interface WTDoFile {
   tasks: object[];
 }
 
+/**
+ *
+ * @param doFile
+ */
 function parseDoFile(doFile: WTDoFile) {
   const doers: WTDoer[] = [];
   const things: WTThing[] = [];

@@ -25,7 +25,9 @@ export default class WTDoer extends Doer {
   }
 
   attachTasks(tasks: WTTask[] | WTTask) {
-    if(!Array.isArray(tasks)) tasks = [tasks];
+    if (!Array.isArray(tasks)) {
+      tasks = [tasks];
+    }
     tasks.forEach((task: WTTask) => {
       this.tasks.push(task.id);
       task.doers.push(this.id);
@@ -50,7 +52,9 @@ export default class WTDoer extends Doer {
 
   constructor(config: ConfigObject, tasks: string[] = []) {
     super();
-    if(!config.name) throw new Error('WTDoer requires a name');
+    if (!config.name) {
+      throw new Error('WTDoer requires a name');
+    }
     this.name = config.name;
     this.skillLevel = config.skillLevel;
     this.skills = config.skills;

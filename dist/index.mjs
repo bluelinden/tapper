@@ -1,7 +1,7 @@
 import { WTDoer, WTTask, WTThing } from './algorithms/worktime/score.mjs';
-var thing = new WTThing('thing');
-var task = new WTTask({ name: 'task', description: 'description' });
-var doer = new WTDoer({
+const thing = new WTThing('thing');
+const task = new WTTask({ name: 'task', description: 'description' });
+const doer = new WTDoer({
     name: 'doer',
     skillLevel: 1,
     dogpileBias: {},
@@ -9,5 +9,5 @@ var doer = new WTDoer({
     capabilities: [],
 });
 while (true)
-    ;
+    ; // Keep the process alive so we can debug it
 //# sourceMappingURL=index.mjs.map

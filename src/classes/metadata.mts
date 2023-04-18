@@ -2,7 +2,7 @@ export default class Metadata {
   type: string;
   id: string;
   private _value: unknown;
-  
+
   constructor(type: string, value: unknown) {
     this.type = type;
     this._value = value;
