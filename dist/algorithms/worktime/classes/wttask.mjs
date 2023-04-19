@@ -1,16 +1,18 @@
 import Task from '../../../classes/thing/task.mjs';
 export default class WTTask extends Task {
     attachToThings(things) {
-        if (!Array.isArray(things))
+        if (!Array.isArray(things)) {
             things = [things];
+        }
         things.forEach((thing) => {
             thing.tasks.push(this.id);
             this.things.push(thing.id);
         });
     }
     attachToDoers(doers) {
-        if (!Array.isArray(doers))
+        if (!Array.isArray(doers)) {
             doers = [doers];
+        }
         doers.forEach((doer) => {
             doer.tasks.push(this.id);
             this.doers.push(doer.id);
@@ -18,7 +20,6 @@ export default class WTTask extends Task {
     }
     addSkillRequirement(skill) {
         this.needsSkills.push(skill.id);
-        return skill;
     }
     addCapabilityRequirement(capability) {
         this.needsCapabilities.push(capability.id);

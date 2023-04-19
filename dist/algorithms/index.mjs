@@ -1,3 +1,3 @@
-import * as Worktime from './worktime/score.mjs';
-export { Worktime };
+import * as worktime from './worktime/index.mjs';
+export { worktime };
 //# sourceMappingURL=index.mjs.map

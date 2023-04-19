@@ -5,7 +5,7 @@ import { Stator } from '../../classes/globalstate.mjs';
  *
  * @param doerID - the doer's id
  * @param stateObj - the global state object
- * @returns the doer's job score
+ * @returns - the doer's job score
  */
 export default async function jobScore(doerID: string, stateObj: Stator){
   const doer = stateObj.doers[doerID];
