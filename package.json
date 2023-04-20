@@ -1,6 +1,6 @@
 {
-  "name": "libtapper",
-  "version": "1.0.0",
+  "name": "worktapper",
+  "version": "1.1.0",
   "description": "Library for assigning work to a human worker pool based on skills and roles",
   "main": "dist/index.mjs",
   "scripts": {
@@ -17,7 +17,7 @@
     "tapper"
   ],
   "type": "module",
-  "author": "blue linden",
+  "author": "blue linden <dev@bluelinden.art> (https://bluelinden.art)",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/bluelinden/tapper/issues"

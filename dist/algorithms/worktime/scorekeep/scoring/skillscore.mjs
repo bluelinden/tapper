@@ -21,7 +21,7 @@ export default async function skillScore(doerID, taskID, stateObj) {
         if (!attachedSkill) {
             return;
         }
-        skillScores.push(1 - (skillRequirement.difficulty * (attachedSkill.level / 100)));
+        skillScores.push((skillRequirement.difficulty * (attachedSkill.level / 100)));
     });
     const skillScoreAverage = (skillScores.reduce((a, b) => a + b, 0) / skillScores.length) / 100;
     return skillScoreAverage;

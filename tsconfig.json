@@ -9,8 +9,9 @@
     "moduleResolution": "nodenext",
     "esModuleInterop": true,
     "resolveJsonModule": true,
+    "declaration": true,
     "outDir": "dist",
   },
-  "files": ["src/index.mts"],
+  "files": ["src/index.mts",],
   "include": ["src/**/*"],
 }

@@ -25,5 +25,5 @@ export default async function jobScore(doerID: string, stateObj: Stator){
   });
 
   // add all items in the array together
-  return Math.max(1 - (taskDiffs.reduce((a, b) => a + b, 0)), 0 );
+  return taskDiffs.reduce((a, b) => a + b, 0);
 }
