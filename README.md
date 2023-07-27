@@ -1,2 +1,2 @@
-# External docs are coming soon as The Verdict works out the kinks.
-Check back later!
+# tapper
+work distribution algorithm that distributes workloads based on the amount of time they will take
